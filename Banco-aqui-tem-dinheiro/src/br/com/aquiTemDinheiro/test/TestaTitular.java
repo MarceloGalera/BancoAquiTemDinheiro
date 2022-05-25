@@ -1,6 +1,6 @@
-package br.com.test;
+package br.com.aquiTemDinheiro.test;
 
-import br.com.aquiTemDinheiro.Titular;
+import br.com.aquiTemDinheiro.modelo.Titular;
 
 public class TestaTitular {
 	public static void main(String[] args) {

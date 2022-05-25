@@ -1,11 +1,11 @@
-package br.com.test;
+package br.com.aquiTemDinheiro.test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.aquiTemDinheiro.ContaCorrente;
-import br.com.aquiTemDinheiro.ContaPoupanca;
-import br.com.aquiTemDinheiro.Titular;
+import br.com.aquiTemDinheiro.modelo.ContaCorrente;
+import br.com.aquiTemDinheiro.modelo.ContaPoupanca;
+import br.com.aquiTemDinheiro.modelo.Titular;
 
 public class TestaContaCorrente {
 

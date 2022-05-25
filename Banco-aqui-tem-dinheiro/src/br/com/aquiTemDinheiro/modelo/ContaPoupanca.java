@@ -1,4 +1,4 @@
-package br.com.aquiTemDinheiro;
+package br.com.aquiTemDinheiro.modelo;
 
 public class ContaPoupanca extends Conta {
 
