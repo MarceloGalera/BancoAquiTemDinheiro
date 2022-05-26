@@ -1,5 +1,13 @@
 package br.com.aquiTemDinheiro.test;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +17,7 @@ import br.com.aquiTemDinheiro.modelo.Titular;
 
 public class TestaConta {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		// TESTANDO CONTA CORRENTE
 		System.out.println("Parte 1");
@@ -82,10 +90,14 @@ public class TestaConta {
 		ccDouglas.setAgencia("987");
 		ccDouglas.setNumeroDaConta("367-0");
 		ccDouglas.setCidade("São Paulo");
+		Titular douglas = new Titular("Douglas", "132456789-0", "Engenheiro");
+		ccDouglas.setTitular(douglas);           // aqui estou atribuindo o Titular douglas para a ContaCorrente ccDouglas
 		ContaCorrente ccAline = new ContaCorrente();
 		ccAline.setAgencia("654");
 		ccAline.setNumeroDaConta("329-1");
 		ccAline.setCidade("Araraquara");
+		Titular aline = new Titular("Aline", "369258147-0", "Médica");
+		ccAline.setTitular(aline);           // aqui estou atribuindo o Titular douglas para a ContaCorrente ccDouglas
 		contasCorrentes.add(ccAline);
 		contasCorrentes.add(ccDouglas);
 		for (ContaCorrente forNasContas : contasCorrentes) {
@@ -97,6 +109,35 @@ public class TestaConta {
 		double transformandoStringEmDouble = Double.parseDouble(ccMarcelo.getNumeroDaConta());
 		System.out.println(transformandoStringEmDouble);
 		
+		// WRITER
+		System.out.println("\nParte 11");
+		FileWriter fw = new FileWriter("C:\\Users\\Marcelo\\Desktop/Contas.txt");
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write("O array contém " + contasCorrentes.size() + " contas Corrente");
+		bw.close();
+		
+
+		// FLUXO DE ENTRADA DE DADOS
+		System.out.println("\nParte 12");
+		//InputStream fis = new FileInputStream("Teste.txt");
+		//Reader isr = new InputStreamReader(fis);
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("Teste.txt")));
+		System.out.println(br.readLine());
+		br.close();
+		
+		
+		// FLUXO DE SAÍDA DE DADOS
+		System.out.println("\nParte 13");
+		//OutputStream fos = new FileOutputStream("Teste.txt");
+		//Writer osw = new OutputStreamWriter(fos);
+		BufferedWriter bw2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("Teste.txt")));
+		bw2.write("O saldo da CC do " + ccDouglas.getTitular().getNome() + " é de R$" + ccDouglas.getSaldo());
+		bw2.newLine();
+		bw2.newLine();
+		bw2.write("Teste escrita");
+		bw2.newLine();
+		bw2.close();
+
 	}
 
 }
