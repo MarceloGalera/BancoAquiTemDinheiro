@@ -77,5 +77,10 @@ public class ContaCorrente extends Conta {
 		}
 		return false;
 	}
+	
+	@Override
+	public String toString() {
+		return "Esta é uma Conta Corrente. " + super.toString();
+	}
 
 }

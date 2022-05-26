@@ -11,12 +11,16 @@ public class TestaConta {
 
 	public static void main(String[] args) {
 
+		// TESTANDO CONTA CORRENTE
 		System.out.println("Parte 1");
-		ContaCorrente ccJessica = new ContaCorrente();
 		ContaCorrente ccMarcelo = new ContaCorrente();
 		ccMarcelo.setCidade("Rio Preto");
 		ccMarcelo.setAgencia("159");
 		ccMarcelo.setNumeroDaConta("123");
+		ContaCorrente ccJessica = new ContaCorrente();
+		ccJessica.setAgencia("159");
+		ccJessica.setNumeroDaConta("456-5");
+		ccJessica.setCidade("Rio Preto");
 		ccMarcelo.depositar(500);
 		ccMarcelo.sacar(-100);
 		ccMarcelo.sacar(100);
@@ -40,6 +44,7 @@ public class TestaConta {
 		ccMarcelo.depositar(-100.0);
 		System.out.println(ccMarcelo.getSaldo());
 		
+		// ARRAYS
 		System.out.println("\nParte 6");
 		List<ContaCorrente> contasCorrentes = new ArrayList<ContaCorrente>();
 		contasCorrentes.add(ccMarcelo);
@@ -50,6 +55,7 @@ public class TestaConta {
 		contasCorrentes.get(0).depositar(100);
 		System.out.println("Saldo da CC do " + contasCorrentes.get(0).getTitular().getNome() + " após a transferência: R$" + contasCorrentes.get(0).getSaldo());
 		
+		// TESTANDO CONTA POUPANÇA
 		System.out.println("\nParte 7");
 		ContaPoupanca cpMarcelo = new ContaPoupanca();
 		cpMarcelo.setTitular(marcelo);
@@ -69,6 +75,28 @@ public class TestaConta {
 		System.out.println("O saldo da CP após o rendimento da aplicação é de R$" + cpMarcelo.getSaldo());
 		cpMarcelo.resgatar(60);
 		System.out.println(cpMarcelo.getTitular().getNome());
+		
+		// FOR / FOREACH
+		System.out.println("\nParte 9");
+		ContaCorrente ccDouglas = new ContaCorrente();
+		ccDouglas.setAgencia("987");
+		ccDouglas.setNumeroDaConta("367-0");
+		ccDouglas.setCidade("São Paulo");
+		ContaCorrente ccAline = new ContaCorrente();
+		ccAline.setAgencia("654");
+		ccAline.setNumeroDaConta("329-1");
+		ccAline.setCidade("Araraquara");
+		contasCorrentes.add(ccAline);
+		contasCorrentes.add(ccDouglas);
+		for (ContaCorrente forNasContas : contasCorrentes) {
+			System.out.println(forNasContas);
+		}
+		
+		// WRAPPER
+		System.out.println("\nParte 10");
+		double transformandoStringEmDouble = Double.parseDouble(ccMarcelo.getNumeroDaConta());
+		System.out.println(transformandoStringEmDouble);
+		
 	}
 
 }

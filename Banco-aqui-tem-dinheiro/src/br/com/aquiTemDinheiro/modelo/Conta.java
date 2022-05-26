@@ -40,5 +40,10 @@ public class Conta {
 	public void setTitular(Titular titular) {
 		this.titular = titular;
 	}
+	
+	@Override
+	public String toString() {
+		return "Numero da Conta: " + this.numeroDaConta + ", Agência: " + this.agencia + ", Cidade: " + this.cidade;
+	}
 
 }

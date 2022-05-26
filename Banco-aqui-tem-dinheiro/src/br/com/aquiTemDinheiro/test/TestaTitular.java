@@ -8,10 +8,11 @@ public class TestaTitular {
 		Titular marcelo = new Titular("Marcelo", "123456789-10", "Programador");
 		System.out.println("Nome: " + marcelo.getNome() + ", Profissão: " + marcelo.getProfissao() + ", inscrito no CPF: " + marcelo.getCpf());
 		
+		// Exception
 		try {
 			Titular jessica = (Titular) new Object();
-		} catch (Exception classCasException) {
-			System.out.println("Deu a exception (classCasException)");
+		} catch (Exception ex) {
+			System.out.println("Deu a exception classCastException: " + ex.getMessage());
 		}
 		
 	}
