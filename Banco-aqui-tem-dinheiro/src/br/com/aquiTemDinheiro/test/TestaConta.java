@@ -7,7 +7,7 @@ import br.com.aquiTemDinheiro.modelo.ContaCorrente;
 import br.com.aquiTemDinheiro.modelo.ContaPoupanca;
 import br.com.aquiTemDinheiro.modelo.Titular;
 
-public class TestaContaCorrente {
+public class TestaConta {
 
 	public static void main(String[] args) {
 
@@ -25,7 +25,8 @@ public class TestaContaCorrente {
 		System.out.println("\nParte 2");
 		Titular marcelo = new Titular("Marcelo", "132456789-0", "Programador");
 		ccMarcelo.setTitular(marcelo);           // aqui estou atribuindo o Titular marcelo para a ContaCorrente ccMarcelo
-		System.out.println(ccMarcelo.getTitular().getNome());       // entro em Titular e peço o nome daquele titular
+		System.out.println("O nome do titular da CC situada em " + ccMarcelo.getCidade() + ", número da conta " + ccMarcelo.getNumeroDaConta() + ", agência " + ccMarcelo.getAgencia() + 
+				", é o(a) cliente " + ccMarcelo.getTitular().getNome());       // entro em Titular e peço o nome daquele titular
 		
 		System.out.println("\nParte 3");
 		System.out.println("A agência do " + ccMarcelo.getTitular().getNome() + " é a " + ccMarcelo.getAgencia() + " e sua Conta Corrente é a " + ccMarcelo.getNumeroDaConta());
@@ -62,8 +63,12 @@ public class TestaContaCorrente {
 		System.out.println("Saldo da CP: R$" + cpMarcelo.getSaldo());
 		
 		System.out.println("\nParte 8");
+		System.out.println("O saldo da CP antes da aplicação é de R$" + cpMarcelo.getSaldo());
+		cpMarcelo.resgatar(60);
 		cpMarcelo.rendimento(20);               // inserir o número de meses para calcular o rendimento
 		System.out.println("O saldo da CP após o rendimento da aplicação é de R$" + cpMarcelo.getSaldo());
+		cpMarcelo.resgatar(60);
+		System.out.println(cpMarcelo.getTitular().getNome());
 	}
 
 }
